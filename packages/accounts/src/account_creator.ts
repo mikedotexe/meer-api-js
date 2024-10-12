@@ -1,0 +1,58 @@
+import { PublicKey } from '@meer-js/crypto';
+import unfetch from 'isomorphic-unfetch';
+
+import { Connection } from './connection.js';
+import { Account } from './account.js';
+
+/**
+ * Account creator provides an interface for implementations to actually create accounts
+ */
+export abstract class AccountCreator {
+    abstract createAccount(newAccountId: string, publicKey: PublicKey): Promise<void>;
+}
+
+export class LocalAccountCreator extends AccountCreator {
+    readonly masterAccount: Account;
+    readonly initialBalance: bigint;
+
+    constructor(masterAccount: Account, initialBalance: bigint) {
+        super();
+        this.masterAccount = masterAccount;
+        this.initialBalance = initialBalance;
+    }
+
+    /**
+     * Creates an account using a masterAccount, meaning the new account is created from an existing account
+     * @param newAccountId The name of the NEAR account to be created
+     * @param publicKey The public key from the masterAccount used to create this account
+     * @returns {Promise<void>}
+     */
+    async createAccount(newAccountId: string, publicKey: PublicKey): Promise<void> {
+        await this.masterAccount.createAccount(newAccountId, publicKey, this.initialBalance);
+    }
+}
+
+export class UrlAccountCreator extends AccountCreator {
+    readonly connection: Connection;
+    readonly helperUrl: string;
+
+    constructor(connection: Connection, helperUrl: string) {
+        super();
+        this.connection = connection;
+        this.helperUrl = helperUrl;
+    }
+
+    /**
+     * Creates an account using a helperUrl
+     * This is [hosted here](https://helper.nearprotocol.com) or set up locally with the [near-contract-helper](https://github.com/nearprotocol/near-contract-helper) repository
+     * @param newAccountId The name of the NEAR account to be created
+     * @param publicKey The public key from the masterAccount used to create this account
+     * @returns {Promise<void>}
+     */
+    async createAccount(newAccountId: string, publicKey: PublicKey): Promise<void> {
+        await unfetch(`${this.helperUrl}/account`, {
+            body: JSON.stringify({ newAccountId, newAccountPublicKey: publicKey.toString() }),
+            method: 'POST',
+        });
+    }
+}

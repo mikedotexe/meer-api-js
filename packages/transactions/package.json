@@ -1,0 +1,47 @@
+{
+  "name": "@meer-js/transactions",
+  "version": "6.6.6",
+  "description": "Functions and data types for transactions on NEAR",
+  "types": "./dist/esm/transactions/src/index.d.ts",
+  "main": "./dist/cjs/transactions/src/index.js",
+  "module": "./dist/esm/transactions/src/index.js",
+  "type": "module",
+  "scripts": {
+    "compile:esm": "tsc -p tsconfig.esm.json",
+    "compile:cjs": "tsc -p tsconfig.cjs.json",
+    "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
+    "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
+    "test": "jest",
+    "clean": "yarn rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@meer-js/crypto": "workspace:*",
+    "@meer-js/signers": "workspace:*",
+    "@meer-js/utils": "workspace:*",
+    "@noble/hashes": "^1.5.0",
+    "borsh": "1.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@meer-js/keystores": "workspace:*",
+    "@meer-js/types": "workspace:*",
+    "@types/node": "*",
+    "jest": "29.7.0",
+    "rimraf": "6.0.1",
+    "ts-jest": "29.1.5",
+    "typescript": "^5.6.0"
+  },
+  "files": [
+    "./dist/esm",
+    "./dist/cjs"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/transactions/src/index.js",
+      "import": "./dist/esm/transactions/src/index.js"
+    }
+  }
+}

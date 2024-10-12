@@ -1,0 +1,50 @@
+{
+  "name": "@meer-js/providers",
+  "version": "6.6.6",
+  "description": "Library of implementations for interfacing with the NEAR blockchain",
+  "types": "./dist/esm/providers/src/index.d.ts",
+  "main": "./dist/cjs/providers/src/index.js",
+  "module": "./dist/esm/providers/src/index.js",
+  "type": "module",
+  "scripts": {
+    "compile:esm": "tsc -p tsconfig.esm.json",
+    "compile:cjs": "tsc -p tsconfig.cjs.json",
+    "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
+    "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
+    "test": "jest",
+    "clean": "yarn rimraf dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@meer-js/transactions": "workspace:*",
+    "@meer-js/utils": "workspace:*",
+    "borsh": "1.0.0",
+    "exponential-backoff": "^3.1.1",
+    "isomorphic-unfetch": "^3.1.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@meer-js/types": "workspace:*",
+    "@types/node": "*",
+    "jest": "29.7.0",
+    "near-workspaces": "3.5.0",
+    "rimraf": "6.0.1",
+    "ts-jest": "29.1.5",
+    "typescript": "^5.6.0"
+  },
+  "optionalDependencies": {
+    "node-fetch": "2.6.7"
+  },
+  "files": [
+    "./dist/esm",
+    "./dist/cjs"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/providers/src/index.js",
+      "import": "./dist/esm/providers/src/index.js"
+    }
+  }
+}
