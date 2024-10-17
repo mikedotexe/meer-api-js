@@ -27,5 +27,3 @@ typedoc-docs/
 .yarn
 .pnp.cjs
 .pnp.loader.mjs
-# Contains access token
-.yarnrc.yml
