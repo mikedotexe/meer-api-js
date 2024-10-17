@@ -9,6 +9,7 @@
   "scripts": {
     "compile:esm": "tsc -p tsconfig.esm.json",
     "compile:cjs": "tsc -p tsconfig.cjs.json",
+    "publish": "yarn npm publish --access public --tolerate-republish",
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
@@ -22,7 +23,7 @@
     "@meer-js/signers": "workspace:*",
     "@meer-js/utils": "workspace:*",
     "@noble/hashes": "^1.5.0",
-    "borsh": "1.0.0"
+    "borsh": "*"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
