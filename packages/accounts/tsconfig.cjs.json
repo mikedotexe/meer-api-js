@@ -11,10 +11,10 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "paths": {
-      "@meer-js/*": ["../*/src/index.ts"]
+      "@meer-js/*": ["../*/src"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
 

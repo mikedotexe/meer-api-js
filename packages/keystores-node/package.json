@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/keystores-node",
-  "version": "6.6.7",
+  "version": "6.6.8",
   "description": "KeyStore implementation for working with keys in the local filesystem",
   "types": "./dist/esm/keystores-node/src/index.d.ts",
   "main": "./dist/cjs/keystores-node/src/index.js",
