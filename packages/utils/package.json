@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/utils",
-  "version": "6.6.6",
+  "version": "6.6.7",
   "description": "Common methods and constants for the NEAR API JavaScript client",
   "types": "./dist/esm/utils/src/index.d.ts",
   "main": "./dist/cjs/utils/src/index.js",

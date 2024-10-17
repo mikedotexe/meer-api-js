@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/crypto",
-  "version": "6.6.6",
+  "version": "6.6.7",
   "description": "Abstractions around NEAR-compatible elliptical curves and cryptographic keys",
   "types": "./dist/esm/crypto/src/index.d.ts",
   "main": "./dist/cjs/crypto/src/index.js",
