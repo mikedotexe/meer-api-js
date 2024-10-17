@@ -1,5 +1,10 @@
 random notes while i work through this, to get to a save point where things just build using the LTS NodeJS version
 
+yarn config set npmAuthToken
+
+yarn workspaces foreach --all -ptv run publish --dry-run
+yarn workspaces foreach --all -ptv run publish --access public --tolerate-republish --otp
+
 dang it, it seems like @meer-js/types is needed in not-devdependencies
 
 random tidbits that are helpful to me during this branch focus
