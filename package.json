@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/monorepo",
-  "version": "6.6.8",
+  "version": "6.6.9",
   "scripts": {
     "build-all:esm": "yarn workspaces foreach --all -t run compile:esm",
     "build-all:cjs": "yarn workspaces foreach --all -t run compile:cjs",
