@@ -1,5 +1,5 @@
 import { baseEncode, baseDecode } from '@meer-js/utils';
-import { ed25519 } from '@noble/curves/ed25519.js';
+import { ed25519 } from '@noble/curves/ed25519';
 import secp256k1 from 'secp256k1';
 
 import { KeySize, KeyType } from './constants.js';
