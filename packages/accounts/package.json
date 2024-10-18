@@ -54,8 +54,7 @@
     "meer-api-js": "workspace:*"
   },
   "files": [
-    "./dist/esm",
-    "./dist/cjs"
+    "dist"
   ],
   "exports": {
     ".": {

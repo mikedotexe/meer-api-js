@@ -72,8 +72,7 @@
     "keywords": [],
     "license": "(MIT AND Apache-2.0)",
     "files": [
-        "./dist/esm",
-        "./dist/cjs"
+        "dist"
     ],
     "exports": {
         ".": {
