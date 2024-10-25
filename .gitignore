@@ -31,3 +31,4 @@ typedoc-docs/
 # After running "yarn pack-all" there will be build artifacts
 # You can use these to see what the NPM package will be.
 **/package.tgz
+**/package/
