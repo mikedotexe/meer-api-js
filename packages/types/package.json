@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/types",
-  "version": "6.6.10",
+  "version": "6.6.12",
   "description": "TypeScript types for working with the Near JS API",
   "types": "./dist/esm/types/src/index.d.ts",
   "main": "./dist/cjs/types/src/index.js",
@@ -12,7 +12,7 @@
     "publish": "yarn npm publish --access public --tolerate-republish",
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts --fix",
-    "clean": "yarn rimraf dist"
+        "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",

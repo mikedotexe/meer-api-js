@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/utils",
-  "version": "6.6.10",
+  "version": "6.6.12",
   "description": "Common methods and constants for the NEAR API JavaScript client",
   "types": "./dist/esm/utils/src/index.d.ts",
   "main": "./dist/cjs/utils/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-    "clean": "yarn rimraf dist"
+        "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",

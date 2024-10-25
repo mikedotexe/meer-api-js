@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/keystores",
-  "version": "6.6.10",
+  "version": "6.6.12",
   "description": "Key storage and management implementations",
   "types": "./dist/esm/keystores/src/index.d.ts",
   "main": "./dist/cjs/keystores/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-    "clean": "yarn rimraf dist"
+        "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",
