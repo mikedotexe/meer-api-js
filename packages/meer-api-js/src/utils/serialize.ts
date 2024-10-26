@@ -1,7 +1,7 @@
 export {
     serialize,
     deserialize,
-    Schema,
+    Schema
 } from 'borsh';
 
 export {

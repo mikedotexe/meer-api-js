@@ -464,14 +464,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hexagon/base64@npm:1.1.26":
-  version: 1.1.26
-  resolution: "@hexagon/base64@npm:1.1.26"
-  checksum: 10c0/3c334f179961871476bcf1b58e12773b97dcf1697dfca93895275a1bf4e0485b02ba91a4f1aa32581fb1743fcac96874609c2f8b3a7c6e68ba3324c4d79e0311
-  languageName: node
-  linkType: hard
-
-"@hexagon/base64@npm:~1.1.26":
+"@hexagon/base64@npm:^1.1.26, @hexagon/base64@npm:~1.1.26":
   version: 1.1.28
   resolution: "@hexagon/base64@npm:1.1.28"
   checksum: 10c0/f90876938cda7c369444f9abcf268a9d93fe26269ae9a16a95fa1f294a5e8f9d172a77905fac205d315b4538ab4da90c866ba73cc035cc0fcf5a6062bb6691ca
@@ -915,9 +908,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@meer-js/monorepo@workspace:."
   dependencies:
-    "@hexagon/base64": "npm:1.1.26"
+    "@hexagon/base64": "npm:^1.1.26"
     "@types/node": "npm:^20.0.0"
-    rimraf: "npm:6.0.1"
+    borsh: "npm:^1.0.0"
+    rimraf: "npm:^6.0.1"
     typescript: "npm:^5.6.0"
   languageName: unknown
   linkType: soft
@@ -975,7 +969,7 @@ __metadata:
     "@meer-js/utils": "workspace:*"
     "@noble/hashes": "npm:^1.5.0"
     "@types/node": "npm:*"
-    borsh: "npm:1.0.0"
+    borsh: "npm:*"
     jest: "npm:29.7.0"
     rimraf: "npm:6.0.1"
     ts-jest: "npm:29.1.5"
@@ -1756,7 +1750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"borsh@npm:1.0.0":
+"borsh@npm:1.0.0, borsh@npm:^1.0.0":
   version: 1.0.0
   resolution: "borsh@npm:1.0.0"
   checksum: 10c0/dbf893af43e5efc6bc9ae2579d5c12514da72437311a30d8c3cfa77c1d51385e0b2a7242f193f7af980e71161ed9db524ab23301752b4401a1b8bfc47f09957b

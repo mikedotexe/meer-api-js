@@ -1,14 +1,13 @@
 {
   "name": "@meer-js/monorepo",
+  "version": "6.6.12",
   "scripts": {
     "build-all:esm": "yarn workspaces foreach --all -t run compile:esm",
     "build-all:cjs": "yarn workspaces foreach --all -t run compile:cjs",
     "install-all": "yarn workspaces foreach --all -t install",
     "install-all:lock": "yarn workspaces foreach --all -t install --refresh-lockfile",
     "clean-all": "yarn workspaces foreach --all -t run clean",
-    "build:exclude": "yarn workspaces foreach --exclude <excluded-package> run build",
-    "build:package": "yarn workspace <package-name> run build",
-    "release": "changeset publish",
+    "pack-all": "yarn workspaces foreach --all -t pack",
     "docs:generate": "typedoc"
   },
   "private": true,
@@ -20,11 +19,12 @@
     "node": ">=20.15.0"
   },
   "dependencies": {
-    "@hexagon/base64": "1.1.26"
+    "@hexagon/base64": "^1.1.26",
+    "borsh": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "rimraf": "6.0.1",
+    "rimraf": "^6.0.1",
     "typescript": "^5.6.0"
   }
 }

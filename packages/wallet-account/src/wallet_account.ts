@@ -112,12 +112,17 @@ export class WalletConnection {
         }
         this._near = near;
         const authDataKey = appKeyPrefix + LOCAL_STORAGE_KEY_SUFFIX;
-        const authData = JSON.parse(window.localStorage.getItem(authDataKey));
+        const authDataLocalStorage = window.localStorage.getItem(authDataKey)
+        if (authDataLocalStorage !== null) {
+          this._authData = JSON.parse(authDataLocalStorage);
+        } else {
+          this._authData = { allKeys: [] };
+        }
+        // added for strict mode
         this._networkId = near.config.networkId;
         this._walletBaseUrl = near.config.walletUrl;
         appKeyPrefix = appKeyPrefix || near.config.contractName || 'default';
         this._keyStore = (near.connection.signer as InMemorySigner).keyStore;
-        this._authData = authData || { allKeys: [] };
         this._authDataKey = authDataKey;
         if (!this.isSignedIn()) {
             this._completeSignInPromise = this._completeSignInWithAccessKey();
@@ -320,7 +325,7 @@ export class WalletConnection {
      * Returns the current connected wallet account
      */
     account() {
-        if (!this._connectedAccount) {
+        if (!this._connectedAccount && typeof this._authData.accountId !== 'undefined') {
             this._connectedAccount = new ConnectedWalletAccount(this, this._near.connection, this._authData.accountId);
         }
         return this._connectedAccount;
@@ -368,7 +373,7 @@ export class ConnectedWalletAccount extends Account {
         if (localKey && localKey.toString() === accessKey.public_key) {
             try {
                 return await super.signAndSendTransaction({ receiverId, actions });
-            } catch (e) {
+            } catch (e: any) {
                 if (e.type === 'NotEnoughAllowance') {
                     accessKey = await this.accessKeyForTransaction(receiverId, actions);
                 } else {
@@ -406,7 +411,7 @@ export class ConnectedWalletAccount extends Account {
      * @param receiverId The NEAR account attempting to have access
      * @param actions The action(s) needed to be checked for access
      */
-    async accessKeyMatchesTransaction(accessKey, receiverId: string, actions: Action[]): Promise<boolean> {
+    async accessKeyMatchesTransaction(accessKey: AccessKeyInfoView, receiverId: string, actions: Action[]): Promise<boolean> {
         const { access_key: { permission } } = accessKey;
         if (permission === 'FullAccess') {
             return true;
@@ -426,10 +431,14 @@ export class ConnectedWalletAccount extends Account {
                     return false;
                 }
                 const [{ functionCall }] = actions;
-                return functionCall &&
-                    (!functionCall.deposit || functionCall.deposit.toString() === '0') && // TODO: Should support charging amount smaller than allowance?
-                    (allowedMethods.length === 0 || allowedMethods.includes(functionCall.methodName));
-                // TODO: Handle cases when allowance doesn't have enough to pay for gas
+
+                // this is where comments could have gone
+                if (functionCall && allowedMethods) {
+                  return functionCall && allowedMethods &&
+                      (!functionCall.deposit || functionCall.deposit.toString() === '0') && // TODO: Should support charging amount smaller than allowance?
+                      (allowedMethods.length === 0 || allowedMethods.includes(functionCall.methodName));
+                  // TODO: Handle cases when allowance doesn't have enough to pay for gas
+                }
             }
         }
         // TODO: Support other permissions than FunctionCall
@@ -455,7 +464,7 @@ export class ConnectedWalletAccount extends Account {
 
         const walletKeys = this.walletConnection._authData.allKeys;
         for (const accessKey of accessKeys) {
-            if (walletKeys.indexOf(accessKey.public_key) !== -1 && await this.accessKeyMatchesTransaction(accessKey, receiverId, actions)) {
+            if (walletKeys && walletKeys.indexOf(accessKey.public_key) !== -1 && await this.accessKeyMatchesTransaction(accessKey, receiverId, actions)) {
                 return accessKey;
             }
         }

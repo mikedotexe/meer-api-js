@@ -1,7 +1,7 @@
 {
     "name": "meer-api-js",
     "description": "JavaScript library to interact with NEAR Protocol via RPC API",
-    "version": "6.6.6",
+    "version": "6.6.12",
     "types": "./dist/esm/meer-api-js/src/index.d.ts",
     "main": "./dist/cjs/meer-api-js/src/index.js",
     "module": "./dist/esm/meer-api-js/src/index.js",
@@ -9,12 +9,13 @@
     "scripts": {
         "compile:esm": "tsc -p tsconfig.esm.json",
         "compile:cjs": "tsc -p tsconfig.cjs.json",
+        "publish": "yarn npm publish --access public --tolerate-republish",
         "test": "jest test --passWithNoTests",
         "lint:src": "eslint --ext .ts src",
         "lint:src:fix": "eslint --ext .ts --fix src",
         "lint:test:fix": "eslint --ext .js --fix test",
         "fuzz": "jsfuzz test/fuzz/borsh-roundtrip.js test/fuzz/corpus/",
-        "clean": "yarn rimraf dist"
+            "clean": "yarn rimraf dist node_modules package.tgz package"
     },
     "peerDependencies": {
         "@meer-js/accounts": "workspace:*",
@@ -71,8 +72,7 @@
     "keywords": [],
     "license": "(MIT AND Apache-2.0)",
     "files": [
-        "./dist/esm",
-        "./dist/cjs"
+        "dist"
     ],
     "exports": {
         ".": {

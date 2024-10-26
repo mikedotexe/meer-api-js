@@ -184,7 +184,7 @@ export class Account implements IntoConnection {
 
             try {
                 return await this.connection.provider.sendTransaction(signedTx);
-            } catch (error) {
+            } catch (error: any) {
                 if (error.type === 'InvalidNonce') {
                     Logger.warn(`Retrying transaction ${receiverId}:${baseEncode(txHash)} with new nonce.`);
                     delete this.accessKeyByPublicKeyCache[publicKey.toString()];
