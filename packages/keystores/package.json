@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-        "clean": "yarn rimraf dist node_modules package.tgz package"
+    "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",
