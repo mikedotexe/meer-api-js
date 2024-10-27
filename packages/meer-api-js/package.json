@@ -15,7 +15,7 @@
         "lint:src:fix": "eslint --ext .ts --fix src",
         "lint:test:fix": "eslint --ext .js --fix test",
         "fuzz": "jsfuzz test/fuzz/borsh-roundtrip.js test/fuzz/corpus/",
-            "clean": "yarn rimraf dist node_modules package.tgz package"
+        "clean": "yarn rimraf dist node_modules package.tgz package"
     },
     "peerDependencies": {
         "@meer-js/accounts": "workspace:*",
