@@ -792,8 +792,8 @@ __metadata:
     "@noble/hashes": "npm:*"
     "@types/json-schema": "npm:^7.0.15"
     "@types/node": "npm:*"
-    borsh: "npm:1.0.0"
-    bs58: "npm:4.0.0"
+    borsh: "npm:*"
+    bs58: "npm:*"
     depd: "npm:2.0.0"
     is-my-json-valid: "npm:^2.20.6"
     isomorphic-unfetch: "npm:^3.1.0"
@@ -821,11 +821,11 @@ __metadata:
     "@jest/globals": "npm:^29.7.0"
     "@meer-js/crypto": "workspace:*"
     "@meer-js/utils": "workspace:*"
-    "@noble/curves": "npm:1.2.0"
+    "@noble/curves": "npm:*"
     "@noble/hashes": "npm:*"
     "@types/node": "npm:*"
     asn1-parser: "npm:1.1.8"
-    borsh: "npm:1.0.0"
+    borsh: "npm:*"
     buffer: "npm:6.0.3"
     cbor-js: "npm:^0.1.0"
     fido2-lib: "npm:3.4.1"
@@ -843,13 +843,13 @@ __metadata:
     "@jest/globals": "npm:^29.7.0"
     "@meer-js/types": "workspace:*"
     "@meer-js/utils": "workspace:*"
-    "@noble/curves": "npm:1.2.0"
+    "@noble/curves": "npm:*"
     "@noble/hashes": "npm:*"
     "@types/node": "npm:*"
-    borsh: "npm:1.0.0"
+    borsh: "npm:*"
     cbor-js: "npm:^0.1.0"
     jest: "npm:29.7.0"
-    randombytes: "npm:2.1.0"
+    randombytes: "npm:*"
     rimraf: "npm:6.0.1"
     secp256k1: "npm:5.0.0"
     ts-jest: "npm:29.1.5"
@@ -909,8 +909,16 @@ __metadata:
   resolution: "@meer-js/monorepo@workspace:."
   dependencies:
     "@hexagon/base64": "npm:^1.1.26"
+    "@noble/curves": "npm:^1.6.0"
+    "@noble/hashes": "npm:^1.5.0"
+    "@types/mustache": "npm:^4.2.5"
     "@types/node": "npm:^20.0.0"
-    borsh: "npm:^1.0.0"
+    "@types/randombytes": "npm:^2.0.3"
+    "@types/secp256k1": "npm:^4.0.6"
+    borsh: "npm:^2.0.0"
+    bs58: "npm:^6.0.0"
+    mustache: "npm:^4.0.0"
+    randombytes: "npm:^2.1.0"
     rimraf: "npm:^6.0.1"
     typescript: "npm:^5.6.0"
   languageName: unknown
@@ -925,7 +933,7 @@ __metadata:
     "@meer-js/types": "workspace:*"
     "@meer-js/utils": "workspace:*"
     "@types/node": "npm:*"
-    borsh: "npm:1.0.0"
+    borsh: "npm:*"
     exponential-backoff: "npm:^3.1.1"
     isomorphic-unfetch: "npm:^3.1.0"
     jest: "npm:29.7.0"
@@ -967,7 +975,7 @@ __metadata:
     "@meer-js/signers": "workspace:*"
     "@meer-js/types": "workspace:*"
     "@meer-js/utils": "workspace:*"
-    "@noble/hashes": "npm:^1.5.0"
+    "@noble/hashes": "npm:*"
     "@types/node": "npm:*"
     borsh: "npm:*"
     jest: "npm:29.7.0"
@@ -997,10 +1005,10 @@ __metadata:
     "@jest/globals": "npm:^29.7.0"
     "@meer-js/types": "workspace:*"
     "@types/node": "npm:*"
-    bs58: "npm:4.0.0"
+    bs58: "npm:*"
     depd: "npm:2.0.0"
     jest: "npm:29.7.0"
-    mustache: "npm:4.0.0"
+    mustache: "npm:*"
     rimraf: "npm:6.0.1"
     ts-jest: "npm:29.1.5"
     typescript: "npm:^5.6.0"
@@ -1174,26 +1182,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/curves@npm:1.2.0":
-  version: 1.2.0
-  resolution: "@noble/curves@npm:1.2.0"
+"@noble/curves@npm:*, @noble/curves@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "@noble/curves@npm:1.6.0"
   dependencies:
-    "@noble/hashes": "npm:1.3.2"
-  checksum: 10c0/0bac7d1bbfb3c2286910b02598addd33243cb97c3f36f987ecc927a4be8d7d88e0fcb12b0f0ef8a044e7307d1844dd5c49bb724bfa0a79c8ec50ba60768c97f6
+    "@noble/hashes": "npm:1.5.0"
+  checksum: 10c0/f3262aa4d39148e627cd82b5ac1c93f88c5bb46dd2566b5e8e52ffac3a0fc381ad30c2111656fd2bd3b0d37d43d540543e0d93a5ff96a6cb184bc3bfe10d1cd9
   languageName: node
   linkType: hard
 
-"@noble/hashes@npm:*, @noble/hashes@npm:^1.5.0":
+"@noble/hashes@npm:*, @noble/hashes@npm:1.5.0, @noble/hashes@npm:^1.5.0":
   version: 1.5.0
   resolution: "@noble/hashes@npm:1.5.0"
   checksum: 10c0/1b46539695fbfe4477c0822d90c881a04d4fa2921c08c552375b444a48cac9930cb1ee68de0a3c7859e676554d0f3771999716606dc4d8f826e414c11692cdd9
-  languageName: node
-  linkType: hard
-
-"@noble/hashes@npm:1.3.2":
-  version: 1.3.2
-  resolution: "@noble/hashes@npm:1.3.2"
-  checksum: 10c0/2482cce3bce6a596626f94ca296e21378e7a5d4c09597cbc46e65ffacc3d64c8df73111f2265444e36a3168208628258bbbaccba2ef24f65f58b2417638a20e7
   languageName: node
   linkType: hard
 
@@ -1417,6 +1418,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/mustache@npm:^4.2.5":
+  version: 4.2.5
+  resolution: "@types/mustache@npm:4.2.5"
+  checksum: 10c0/624975c39068d47407eadb89628aaff5ef60f3b7a71eef92a254310896a4e90518a01dcf71d95779ab2c986034a6ca5403d22fea237c67ff87f2e2b3fb794ea6
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*":
   version: 22.7.5
   resolution: "@types/node@npm:22.7.5"
@@ -1435,12 +1443,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/randombytes@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@types/randombytes@npm:2.0.3"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/b65a6bd481659ce2ee87193b9e221d1b336a161bb3a8d41819b3e8a4401421827867c250582e4a4759e8ab24983821aad80ed1f2d46a79d41a42229caf521be0
+  languageName: node
+  linkType: hard
+
 "@types/responselike@npm:^1.0.0":
   version: 1.0.3
   resolution: "@types/responselike@npm:1.0.3"
   dependencies:
     "@types/node": "npm:*"
   checksum: 10c0/a58ba341cb9e7d74f71810a88862da7b2a6fa42e2a1fc0ce40498f6ea1d44382f0640117057da779f74c47039f7166bf48fad02dc876f94e005c7afa50f5e129
+  languageName: node
+  linkType: hard
+
+"@types/secp256k1@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@types/secp256k1@npm:4.0.6"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/0e391316ae30c218779583b626382a56546ddbefb65f1ff9cf5e078af8a7118f67f3e66e30914399cc6f8710c424d0d8c3f34262ffb1f429c6ad911fd0d0bc26
   languageName: node
   linkType: hard
 
@@ -1697,21 +1723,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"base-x@npm:^2.0.1":
-  version: 2.0.6
-  resolution: "base-x@npm:2.0.6"
-  dependencies:
-    safe-buffer: "npm:^5.0.1"
-  checksum: 10c0/a82119644a9e9cafeb5e15a1560066df5c786e8cada7207757acb41816feb47f9027c2f72d5a3eee026f67ad05d34e066c54837c038ac80ce7d1171443f508af
-  languageName: node
-  linkType: hard
-
 "base-x@npm:^3.0.2":
   version: 3.0.10
   resolution: "base-x@npm:3.0.10"
   dependencies:
     safe-buffer: "npm:^5.0.1"
   checksum: 10c0/a13a34b71439ee5381667efa630b3bf640cf17f632c5ba01990483367592e72f247d7fb4f8c6d0e3ff8c0fb7224b3ac682ff5be09b87063a45b3968f0457e563
+  languageName: node
+  linkType: hard
+
+"base-x@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "base-x@npm:5.0.0"
+  checksum: 10c0/8787a582737a77f7c3d14b92de4812843af99fc62da8792f961e13c56958dc545e9ddab55f726d63987dded9eb732dc7de465730fa3db159c0de14a95067c74a
   languageName: node
   linkType: hard
 
@@ -1743,17 +1767,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"borsh@npm:*":
+"borsh@npm:*, borsh@npm:^2.0.0":
   version: 2.0.0
   resolution: "borsh@npm:2.0.0"
   checksum: 10c0/59a96dd9c707450862198510fc518dff92ac7f0ed0d228c9b38affd968bb4debec805c6e2afed8ec13efd9fad63fd47f8e6ed420253542a8d10fb59f28fc7d01
-  languageName: node
-  linkType: hard
-
-"borsh@npm:1.0.0, borsh@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "borsh@npm:1.0.0"
-  checksum: 10c0/dbf893af43e5efc6bc9ae2579d5c12514da72437311a30d8c3cfa77c1d51385e0b2a7242f193f7af980e71161ed9db524ab23301752b4401a1b8bfc47f09957b
   languageName: node
   linkType: hard
 
@@ -1837,12 +1854,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bs58@npm:4.0.0":
-  version: 4.0.0
-  resolution: "bs58@npm:4.0.0"
+"bs58@npm:*, bs58@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "bs58@npm:6.0.0"
   dependencies:
-    base-x: "npm:^2.0.1"
-  checksum: 10c0/76f0695f71245ce14b0675f8382387fc63d8de184680e98114df98e125c6b7cd970a86deeb8a22d921157b243dbee42e6100c0c95aec79d90ccb1984b5950cf1
+    base-x: "npm:^5.0.0"
+  checksum: 10c0/61910839746625ee4f69369f80e2634e2123726caaa1da6b3bcefcf7efcd9bdca86603360fed9664ffdabe0038c51e542c02581c72ca8d44f60329fe1a6bc8f4
   languageName: node
   linkType: hard
 
@@ -3836,11 +3853,11 @@ __metadata:
     "@meer-js/types": "workspace:*"
     "@meer-js/utils": "workspace:*"
     "@meer-js/wallet-account": "workspace:*"
-    "@noble/curves": "npm:1.2.0"
+    "@noble/curves": "npm:*"
     "@types/http-errors": "npm:1.6.1"
     "@types/node": "npm:*"
-    borsh: "npm:1.0.0"
-    bs58: "npm:4.0.0"
+    borsh: "npm:*"
+    bs58: "npm:*"
     concurrently: "npm:7.3.0"
     depd: "npm:2.0.0"
     http-errors: "npm:1.7.2"
@@ -4036,16 +4053,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mustache@npm:4.0.0":
-  version: 4.0.0
-  resolution: "mustache@npm:4.0.0"
-  bin:
-    mustache: ./bin/mustache
-  checksum: 10c0/63f7fdb50b55f1285c2c601d2bef760a2e10a3ea68b020358430141010fd990c11e58bb62e1da59363a6e0c74c27c2b7277965f5bcf9a831961a93959450c6ff
-  languageName: node
-  linkType: hard
-
-"mustache@npm:^4.0.0":
+"mustache@npm:*, mustache@npm:^4.0.0":
   version: 4.2.0
   resolution: "mustache@npm:4.2.0"
   bin:
@@ -4587,7 +4595,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"randombytes@npm:2.1.0":
+"randombytes@npm:*, randombytes@npm:^2.1.0":
   version: 2.1.0
   resolution: "randombytes@npm:2.1.0"
   dependencies:
