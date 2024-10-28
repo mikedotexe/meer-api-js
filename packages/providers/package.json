@@ -21,7 +21,7 @@
   "dependencies": {
     "@meer-js/transactions": "workspace:*",
     "@meer-js/utils": "workspace:*",
-    "borsh": "1.0.0",
+    "borsh": "*",
     "exponential-backoff": "^3.1.1",
     "isomorphic-unfetch": "^3.1.0"
   },

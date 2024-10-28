@@ -20,10 +20,18 @@
   },
   "dependencies": {
     "@hexagon/base64": "^1.1.26",
-    "borsh": "^1.0.0"
+    "@noble/curves": "^1.6.0",
+    "@noble/hashes": "^1.5.0",
+    "borsh": "^2.0.0",
+    "bs58": "^6.0.0",
+    "mustache": "^4.0.0",
+    "randombytes": "^2.1.0"
   },
   "devDependencies": {
+    "@types/mustache": "^4.2.5",
     "@types/node": "^20.0.0",
+    "@types/randombytes": "^2.0.3",
+    "@types/secp256k1": "^4.0.6",
     "rimraf": "^6.0.1",
     "typescript": "^5.6.0"
   }

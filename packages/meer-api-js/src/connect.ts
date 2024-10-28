@@ -1,5 +1,5 @@
-import { InMemoryKeyStore, MergeKeyStore } from './key_stores';
-import { Near, NearConfig } from './near';
+import { InMemoryKeyStore, MergeKeyStore } from './key_stores/index.js';
+import { Near, NearConfig } from './near.js';
 import { Logger } from '@meer-js/utils';
 
 export interface ConnectConfig extends NearConfig {

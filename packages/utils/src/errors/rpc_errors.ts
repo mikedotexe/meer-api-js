@@ -3,10 +3,10 @@ import Mustache from 'mustache';
 
 import { formatNearAmount } from '../format.js';
 import { ErrorMessages } from './errors.js';
-import schema from './rpc_error_schema.json';
+import { rpcErrorSchema as schema } from './rpc_error_schema.js';
 
 const mustacheHelpers = {
-    formatNear: () => (n, render) => formatNearAmount(render(n))
+    formatNear: () => (n: any, render: any) => formatNearAmount(render(n))
 };
 
 export class ServerError extends TypedError {
@@ -35,7 +35,7 @@ export function parseResultError(result: any): ServerTransactionError {
     return server_tx_error;
 }
 
-export function formatError(errorClassName: string, errorData): string {
+export function formatError(errorClassName: string, errorData: any): string {
     if (typeof ErrorMessages[errorClassName] === 'string') {
         return Mustache.render(ErrorMessages[errorClassName], {
             ...errorData,
@@ -52,7 +52,7 @@ export function formatError(errorClassName: string, errorData): string {
  * @param result An object used in recursion or called directly
  * @param typeName The human-readable error type name as defined in the JSON mapping
  */
-function walkSubtype(errorObj, schema, result, typeName) {
+function walkSubtype(errorObj: any, schema: any, result: any, typeName: any) {
     let error;
     let type;
     let errorTypeName;
@@ -85,7 +85,7 @@ function walkSubtype(errorObj, schema, result, typeName) {
     }
 }
 
-export function getErrorTypeFromErrorMessage(errorMessage, errorType) {
+export function getErrorTypeFromErrorMessage(errorMessage: any, errorType: any) {
     // This function should be removed when JSON RPC starts returning typed errors.
     switch (true) {
         case /^account .*? does not exist while viewing$/.test(errorMessage):
@@ -113,7 +113,7 @@ export function getErrorTypeFromErrorMessage(errorMessage, errorType) {
  * Helper function determining if the argument is an object
  * @param n Value to check
  */
-function isObject(n) {
+function isObject(n: any) {
     return Object.prototype.toString.call(n) === '[object Object]';
 }
 
@@ -121,6 +121,6 @@ function isObject(n) {
  * Helper function determining if the argument is a string
  * @param n Value to check
  */
-function isString(n) {
+function isString(n: any) {
     return Object.prototype.toString.call(n) === '[object String]';
 }

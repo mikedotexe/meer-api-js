@@ -19,9 +19,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bs58": "4.0.0",
+    "bs58": "*",
     "depd": "2.0.0",
-    "mustache": "4.0.0"
+    "mustache": "*"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
