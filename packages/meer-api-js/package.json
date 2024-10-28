@@ -47,7 +47,6 @@
         "@meer-js/crypto": "workspace:*",
         "@meer-js/keystores": "workspace:*",
         "@meer-js/keystores-browser": "workspace:*",
-        "@meer-js/keystores-node": "workspace:*",
         "@meer-js/providers": "workspace:*",
         "@meer-js/signers": "workspace:*",
         "@meer-js/transactions": "workspace:*",

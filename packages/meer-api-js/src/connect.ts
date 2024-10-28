@@ -2,27 +2,11 @@ import { InMemoryKeyStore, MergeKeyStore } from './key_stores';
 import { Near, NearConfig } from './near';
 import { Logger } from '@meer-js/utils';
 
-let readKeyFile: ((filename: string) => Promise<[string, any]>) | undefined;
-
-// Check if the environment has file system access
-const hasFileAccess = typeof window === 'undefined';
-
-// Dynamically import `readKeyFile` if file system access is available
-if (hasFileAccess) {
-  import('./key_stores/unencrypted_file_system_keystore')
-    .then((module) => {
-      readKeyFile = module.readKeyFile;
-    })
-    .catch((err) => {
-      console.error('Failed to load readKeyFile:', err);
-    });
-}
-
 export interface ConnectConfig extends NearConfig {
   /**
-   * Initialize an {@link InMemoryKeyStore} by reading the file at keyPath.
+   * Optionally, an in-memory key store or another type of key store.
    */
-  keyPath?: string;
+  keyPath?: string; // This will no longer be used, but remains for backward compatibility.
 }
 
 /**
@@ -40,7 +24,6 @@ export interface ConnectConfig extends NearConfig {
  *   keyStore: new InMemoryKeyStore(),
  *   deps: { keyStore: new BrowserLocalStorageKeyStore() },
  *   logger: true,
- *   keyPath: '/path/to/account-key.json',
  *   masterAccount: 'master-account.near',
  * };
  *
@@ -55,31 +38,14 @@ export async function connect(config: ConnectConfig): Promise<Near> {
     Logger.overrideLogger(config.logger);
   }
 
-  // Try to find extra key in `KeyPath` if provided.
-  if (config.keyPath && (config.keyStore || config.deps?.keyStore)) {
-    if (!hasFileAccess || !readKeyFile) {
-      Logger.warn(`File system access is not available; cannot load key from ${config.keyPath}.`);
-    } else {
-      try {
-        const accountKeyFile = await readKeyFile(config.keyPath);
-        if (accountKeyFile[0]) {
-          // TODO: Only load key if network ID matches
-          const keyPair = accountKeyFile[1];
-          const keyPathStore = new InMemoryKeyStore();
-          await keyPathStore.setKey(config.networkId, accountKeyFile[0], keyPair);
-          if (!config.masterAccount) {
-            config.masterAccount = accountKeyFile[0];
-          }
-          config.keyStore = new MergeKeyStore([
-            keyPathStore,
-            config.keyStore || config.deps?.keyStore
-          ], { writeKeyStoreIndex: 1 });
-          Logger.log(`Loaded master account ${accountKeyFile[0]} key from ${config.keyPath} with public key = ${keyPair.getPublicKey()}`);
-        }
-      } catch (error) {
-        Logger.warn(`Failed to load master account key from ${config.keyPath}: ${error}`);
-      }
-    }
+  // Since `keyPath` is no longer used, the function will no longer attempt to load keys from the file system.
+  // Instead, it simply configures the connection using the provided key store (if available).
+
+  if (config.keyStore || config.deps?.keyStore) {
+    const keyStore = config.keyStore || config.deps.keyStore;
+    config.keyStore = new MergeKeyStore([keyStore], { writeKeyStoreIndex: 0 });
+    Logger.log(`Key store initialized for the connection configuration.`);
   }
+
   return new Near(config);
 }
