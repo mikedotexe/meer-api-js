@@ -17,7 +17,13 @@
         "fuzz": "jsfuzz test/fuzz/borsh-roundtrip.js test/fuzz/corpus/",
         "clean": "yarn rimraf dist node_modules package.tgz package"
     },
-    "peerDependencies": {
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/near/near-api-js.git"
+    },
+    "homepage": "https://github.com/near/near-api-js",
+    "browser": "./dist/esm/meer-api-js/src/browser-index.js",
+    "dependencies": {
         "@meer-js/accounts": "workspace:*",
         "@meer-js/crypto": "workspace:*",
         "@meer-js/keystores": "workspace:*",
@@ -28,15 +34,7 @@
         "@meer-js/transactions": "workspace:*",
         "@meer-js/types": "workspace:*",
         "@meer-js/utils": "workspace:*",
-        "@meer-js/wallet-account": "workspace:*"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/near/near-api-js.git"
-    },
-    "homepage": "https://github.com/near/near-api-js",
-    "browser": "./dist/esm/meer-api-js/src/browser-index.js",
-    "dependencies": {
+        "@meer-js/wallet-account": "workspace:*",
         "@noble/curves": "1.2.0",
         "borsh": "1.0.0",
         "depd": "2.0.0",
