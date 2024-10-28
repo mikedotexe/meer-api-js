@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/signers",
-  "version": "6.6.12",
+  "version": "6.6.13",
   "description": "Modules for cryptographically signing messages",
   "types": "./dist/esm/signers/src/index.d.ts",
   "main": "./dist/cjs/signers/src/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/providers",
-  "version": "6.6.12",
+  "version": "6.6.13",
   "description": "Library of implementations for interfacing with the NEAR blockchain",
   "types": "./dist/esm/providers/src/index.d.ts",
   "main": "./dist/cjs/providers/src/index.js",

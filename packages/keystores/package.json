@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/keystores",
-  "version": "6.6.12",
+  "version": "6.6.13",
   "description": "Key storage and management implementations",
   "types": "./dist/esm/keystores/src/index.d.ts",
   "main": "./dist/cjs/keystores/src/index.js",
