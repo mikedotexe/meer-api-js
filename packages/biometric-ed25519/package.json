@@ -1,7 +1,7 @@
 {
   "name": "@meer-js/biometric-ed25519",
   "description": "JavaScript library to handle webauthn and biometric keys",
-  "version": "6.6.16",
+  "version": "6.6.17",
   "types": "./dist/esm/biometric-ed25519/src/index.d.ts",
   "main": "./dist/cjs/biometric-ed25519/src/index.js",
   "module": "./dist/esm/biometric-ed25519/src/index.js",

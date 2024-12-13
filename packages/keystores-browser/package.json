@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/keystores-browser",
-  "version": "6.6.16",
+  "version": "6.6.17",
   "description": "KeyStore implementation for working with keys in browser LocalStorage",
   "types": "./dist/esm/keystores-browser/src/index.d.ts",
   "main": "./dist/cjs/keystores-browser/src/index.js",
