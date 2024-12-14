@@ -1,7 +1,7 @@
 {
     "name": "meer-api-js",
     "description": "JavaScript library to interact with NEAR Protocol via RPC API",
-    "version": "6.6.17",
+    "version": "6.6.18",
     "types": "./dist/esm/meer-api-js/src/index.d.ts",
     "main": "./dist/cjs/meer-api-js/src/index.js",
     "module": "./dist/esm/meer-api-js/src/index.js",
