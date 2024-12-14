@@ -5,10 +5,12 @@
     "types": "./dist/esm/meer-api-js/src/index.d.ts",
     "main": "./dist/cjs/meer-api-js/src/index.js",
     "module": "./dist/esm/meer-api-js/src/index.js",
+    "browser": "./dist/umd/meer-api-js/src/browser-index.js",
     "type": "module",
     "scripts": {
         "compile:esm": "tsc -p tsconfig.esm.json",
         "compile:cjs": "tsc -p tsconfig.cjs.json",
+        "compile:umd": "rollup -c rollup.config.mjs",
         "publish": "yarn npm publish --access public --tolerate-republish",
         "test": "jest test --passWithNoTests",
         "lint:src": "eslint --ext .ts src",
@@ -22,7 +24,6 @@
         "url": "git+https://github.com/near/near-api-js.git"
     },
     "homepage": "https://github.com/near/near-api-js",
-    "browser": "./dist/esm/meer-api-js/src/browser-index.js",
     "dependencies": {
         "@meer-js/accounts": "workspace:*",
         "@meer-js/crypto": "workspace:*",
@@ -53,6 +54,11 @@
         "@meer-js/types": "workspace:*",
         "@meer-js/utils": "workspace:*",
         "@meer-js/wallet-account": "workspace:*",
+        "@rollup/plugin-alias": "*",
+        "@rollup/plugin-commonjs": "*",
+        "@rollup/plugin-json": "*",
+        "@rollup/plugin-node-resolve": "*",
+        "@rollup/plugin-typescript": "*",
         "@types/http-errors": "1.6.1",
         "@types/node": "*",
         "bs58": "*",
@@ -62,6 +68,7 @@
         "near-hello": "0.5.1",
         "near-workspaces": "3.5.0",
         "rimraf": "^6.0.1",
+        "rollup": "*",
         "semver": "7.1.1",
         "ts-jest": "29.1.5",
         "typescript": "^5.6.0"

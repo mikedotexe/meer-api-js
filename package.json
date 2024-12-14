@@ -28,11 +28,17 @@
     "randombytes": "^2.1.0"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@types/mustache": "^4.2.5",
     "@types/node": "^20.0.0",
     "@types/randombytes": "^2.0.3",
     "@types/secp256k1": "^4.0.6",
     "rimraf": "^6.0.1",
+    "rollup": "^4.28.1",
     "typescript": "^5.6.0"
   }
 }
