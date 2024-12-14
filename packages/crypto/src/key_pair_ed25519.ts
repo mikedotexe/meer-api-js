@@ -64,8 +64,13 @@ export class KeyPairEd25519 extends KeyPairBase {
      * @returns {boolean} `true` if the signature is valid, otherwise `false`.
      */
     verify(message: Uint8Array, signature: Uint8Array): boolean {
+      if (this.publicKey?.verify) {
         return this.publicKey.verify(message, signature);
+      } else {
+        throw new Error("Public key or verify method is not defined.");
+      }
     }
+
 
     /**
      * Returns a string representation of the key pair in the format 'ed25519:[extendedSecretKey]'.

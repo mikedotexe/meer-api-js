@@ -1,4 +1,4 @@
-{
+export const errorMessages = {
     "GasLimitExceeded": "Exceeded the maximum amount of gas allowed to burn per contract",
     "MethodEmptyName": "Method name is empty",
     "WasmerCompileError": "Wasmer compilation error: {{msg}}",

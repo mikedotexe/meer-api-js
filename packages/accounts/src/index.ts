@@ -21,10 +21,6 @@ export {
     MULTISIG_CONFIRM_METHODS,
 } from './constants.js';
 export {
-    Contract,
-    ContractMethods,
-} from './contract.js';
-export {
     ArgumentSchemaError,
     ConflictingOptions,
     UnknownArgumentError,

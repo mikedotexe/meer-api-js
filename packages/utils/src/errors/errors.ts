@@ -1,3 +1,3 @@
-import ErrorMessagesJson from './error_messages.json';
+import { errorMessages } from './error_messages.js';
 
-export const ErrorMessages: { [error: string]: string } = ErrorMessagesJson;
+export const ErrorMessages: { [error: string]: string } = errorMessages;

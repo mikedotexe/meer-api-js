@@ -11,7 +11,7 @@ import {
   ITransaction,
   SignedTransaction, Transaction
 } from './schema.js';
-import {createSignature, ISignatureTx} from './ISignatureTx';
+import {createSignature, ISignatureTx} from './ISignatureTx.js';
 // can't use import type here because we're referencing the variants
 import { KeyType } from '@meer-js/crypto';
 import { IDelegateAction } from "./types.js";

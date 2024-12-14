@@ -20,7 +20,7 @@
  *
  * @module browserConnect
  */
-import { Near, NearConfig } from './near';
+import { Near, NearConfig } from './near.js';
 
 export interface ConnectConfig extends NearConfig {
     /** @hidden */
