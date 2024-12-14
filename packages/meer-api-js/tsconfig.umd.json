@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "outDir": "./dist/umd",
+    "declaration": true,
+    "declarationMap": true,
+    "types": ["node"],
+    "paths": {
+      "@meer-js/*": ["../*/src"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
