@@ -1,6 +1,6 @@
 import { PublicKey } from '@meer-js/crypto';
 import { FinalExecutionOutcome, TypedError, FunctionCallPermissionView } from '@meer-js/types';
-import { actionCreators } from '@meer-js/transactions';
+import {Action, actionCreators} from '@meer-js/transactions';
 import { Logger } from '@meer-js/utils'
 import unfetch from 'isomorphic-unfetch';
 
@@ -147,22 +147,43 @@ export class Account2FA extends AccountMultisig {
      * @param cleanupContractBytes - The bytecode of the cleanup contract.
      * @returns {Promise<Action[]>} - A promise that resolves to an array of cleanup actions.
      */
-    async get2faDisableCleanupActions(cleanupContractBytes: Uint8Array) {
-        const currentAccountState: { key: Buffer; value: Buffer }[] = await this.viewState('').catch(error => {
-            const cause = error.cause && error.cause.name;
-            if (cause == 'NO_CONTRACT_CODE') {
-                return [];
-            }
-            throw cause == 'TOO_LARGE_CONTRACT_STATE'
-                ? new TypedError(`Can not deploy a contract to account ${this.accountId} on network ${this.connection.networkId}, the account has existing state.`, 'ContractHasExistingState')
-                : error;
-        });
-
+    async get2faDisableCleanupActions(cleanupContractBytes: Uint8Array): Promise<Action[]> {
+      try {
+        const currentAccountState: { key: Buffer; value: Buffer }[] = await this.viewState('');
         const currentAccountStateKeys = currentAccountState.map(({ key }) => key.toString('base64'));
+
         return currentAccountState.length ? [
-            deployContract(cleanupContractBytes),
-            functionCall('clean', { keys: currentAccountStateKeys }, MULTISIG_GAS, 0n)
+          deployContract(cleanupContractBytes),
+          functionCall('clean', { keys: currentAccountStateKeys }, MULTISIG_GAS, 0n)
         ] : [];
+      } catch (error) {
+        // Check for specific error messages or types that indicate common cases
+        const errorMessage = error.message || error.toString();
+
+        // Handle case where there's no contract code
+        if (
+          errorMessage.includes('NO_CONTRACT_CODE') ||
+          errorMessage.includes('Contract code not found') ||
+          errorMessage.includes('Account does not exist')
+        ) {
+          return [];
+        }
+
+        // Handle case where contract state is too large
+        if (
+          errorMessage.includes('TOO_LARGE_CONTRACT_STATE') ||
+          errorMessage.includes('State size exceeded') ||
+          errorMessage.includes('Contract state too large')
+        ) {
+          throw new TypedError(
+            `Can not deploy a contract to account ${this.accountId} on network ${this.connection.networkId}, the account has existing state.`,
+            'ContractHasExistingState'
+          );
+        }
+
+        // For any other errors, preserve the original error
+        throw error;
+      }
     }
 
     /**

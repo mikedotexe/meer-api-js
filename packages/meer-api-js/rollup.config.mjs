@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import alias from '@rollup/plugin-alias';
 import json from '@rollup/plugin-json';
+import replace from '@rollup/plugin-replace';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -23,6 +24,15 @@ export default {
   },
   plugins: [
     json(),
+    replace({
+      preventAssignment: true,
+      values: {
+        'this && this.__extends': 'globalThis && globalThis.__extends',
+        'this && this.__assign': 'globalThis && globalThis.__assign',
+        'this && this.__rest': 'globalThis && globalThis.__rest',
+        'this && this.__decorate': 'globalThis && globalThis.__decorate'
+      }
+    }),
     alias({
       entries: [
         {
@@ -38,10 +48,12 @@ export default {
     resolve({
       browser: true,
       preferBuiltins: false,
-      mainFields: ['browser', 'module', 'main']  // Prioritize browser builds
+      mainFields: ['browser', 'module', 'main']
     }),
     commonjs({
-      include: /node_modules/
+      include: /node_modules/,
+      transformMixedEsModules: true,
+      requireReturnsDefault: 'auto'
     })
   ]
 };
