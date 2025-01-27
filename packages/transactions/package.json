@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/transactions",
-  "version": "6.6.23",
+  "version": "6.6.24",
   "description": "Functions and data types for transactions on NEAR",
   "types": "./dist/esm/transactions/src/index.d.ts",
   "main": "./dist/cjs/transactions/src/index.js",
