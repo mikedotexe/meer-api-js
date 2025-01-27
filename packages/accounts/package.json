@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/accounts",
-  "version": "6.6.21",
+  "version": "6.6.23",
   "description": "Classes encapsulating account-specific functionality",
   "types": "./dist/esm/accounts/src/index.d.ts",
   "main": "./dist/cjs/accounts/src/index.js",
