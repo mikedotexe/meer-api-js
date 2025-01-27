@@ -48,21 +48,31 @@ const retryConfig: RetryConfig = {
   numOfAttempts: RETRY_NUMBER,
   timeMultiple: BACKOFF_MULTIPLIER,
   shouldRetry: (error: Error): boolean => {
-    // Check if it's our ProviderError with a status
-    if (error instanceof ProviderError && error.status) {
-      // Retry on service unavailable or timeout
-      return [503, 408].includes(error.status);
-    }
-
-    // Check for network-related errors
+    // Check for network-related errors first
     const errorString = error.toString().toLowerCase();
-    return (
+    const isNetworkError = (
       errorString.includes('fetch error') ||
       errorString.includes('failed to fetch') ||
       errorString.includes('network error') ||
       errorString.includes('timeout') ||
       errorString.includes('econnrefused')
     );
+
+    if (isNetworkError) {
+      return true;
+    }
+
+    // Then check for specific HTTP status codes
+    if (error instanceof ProviderError) {
+      const status = error.status;
+      if (typeof status === 'number') {
+        // Retry on service unavailable, timeout, or 5xx server errors
+        return status === 408 || status === 503 || (status >= 500 && status < 600);
+      }
+    }
+
+    // For any other type of error, don't retry
+    return false;
   }
 };
 
