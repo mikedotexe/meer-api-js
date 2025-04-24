@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/keystores-browser",
-  "version": "6.6.12",
+  "version": "6.6.24",
   "description": "KeyStore implementation for working with keys in browser LocalStorage",
   "types": "./dist/esm/keystores-browser/src/index.d.ts",
   "main": "./dist/cjs/keystores-browser/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-        "clean": "yarn rimraf dist node_modules package.tgz package"
+    "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",

@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/signers",
-  "version": "6.6.12",
+  "version": "6.6.24",
   "description": "Modules for cryptographically signing messages",
   "types": "./dist/esm/signers/src/index.d.ts",
   "main": "./dist/cjs/signers/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-        "clean": "yarn rimraf dist node_modules package.tgz package"
+    "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",

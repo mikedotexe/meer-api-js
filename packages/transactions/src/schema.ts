@@ -92,7 +92,7 @@ export class Transaction {
         this.blockHash = blockHash;
     }
 
-    encode(): Uint8Array {
+    public encode(): Uint8Array {
         return encodeTransaction(this);
     }
 

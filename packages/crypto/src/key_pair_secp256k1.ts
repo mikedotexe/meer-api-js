@@ -64,8 +64,13 @@ export class KeyPairSecp256k1 extends KeyPairBase {
     }
 
     verify(message: Uint8Array, signature: Uint8Array): boolean {
+      if (this.publicKey?.verify) {
         return this.publicKey.verify(message, signature);
+      } else {
+        throw new Error("Public key or verify method is not defined.");
+      }
     }
+
 
     toString(): KeyPairString {
         return `secp256k1:${this.extendedSecretKey}`;

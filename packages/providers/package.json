@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/providers",
-  "version": "6.6.12",
+  "version": "6.6.24",
   "description": "Library of implementations for interfacing with the NEAR blockchain",
   "types": "./dist/esm/providers/src/index.d.ts",
   "main": "./dist/cjs/providers/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-        "clean": "yarn rimraf dist node_modules package.tgz package"
+    "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +21,7 @@
   "dependencies": {
     "@meer-js/transactions": "workspace:*",
     "@meer-js/utils": "workspace:*",
-    "borsh": "1.0.0",
+    "borsh": "*",
     "exponential-backoff": "^3.1.1",
     "isomorphic-unfetch": "^3.1.0"
   },

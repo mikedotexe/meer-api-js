@@ -1,7 +1,7 @@
 {
   "name": "@meer-js/biometric-ed25519",
   "description": "JavaScript library to handle webauthn and biometric keys",
-  "version": "6.6.12",
+  "version": "6.6.24",
   "types": "./dist/esm/biometric-ed25519/src/index.d.ts",
   "main": "./dist/cjs/biometric-ed25519/src/index.js",
   "module": "./dist/esm/biometric-ed25519/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-        "clean": "yarn rimraf dist node_modules package.tgz package"
+    "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "Pagoda",
@@ -22,10 +22,10 @@
     "@hexagon/base64": "*",
     "@meer-js/crypto": "workspace:*",
     "@meer-js/utils": "workspace:*",
-    "@noble/curves": "1.2.0",
+    "@noble/curves": "*",
     "@noble/hashes": "*",
     "asn1-parser": "1.1.8",
-    "borsh": "1.0.0",
+    "borsh": "*",
     "buffer": "6.0.3",
     "cbor-js": "^0.1.0",
     "fido2-lib": "3.4.1"

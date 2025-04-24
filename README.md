@@ -1,11 +1,16 @@
 random notes while i work through this, to get to a save point where things just build using the LTS NodeJS version
 
+yarn install-all && yarn build-all:esm && yarn build-all:cjs
+yarn workspace meer-api-js run compile:umd
+
 yarn constraints --fix
 
 yarn config set npmAuthToken
 
 yarn workspaces foreach --all -ptv run publish --dry-run
 yarn workspaces foreach --all -ptv run publish --access public --tolerate-republish --otp 
+
+
 
 dang it, it seems like @meer-js/types is needed in not-devdependencies
 
@@ -73,11 +78,7 @@ Tests use sample contract from `near-hello` npm package, see https://github.com/
 
 Follow next steps:
 
-1. [Optionally, set a specific hash for the commit with errors in the nearcore](https://github.com/near/near-api-js/blob/master/packages/utils/fetch_error_schema.js#L4-L5)
-2. Fetch new schema: `node fetch_error_schema.js`
-3. `pnpm build` and `pnpm test` to check tests still work
-4. `pnpm changeset` to generate a changeset with a minor bump for the @near-js/utils package
-5. commit all changes and submit a PR on GitHub
+xxx
 
 ## Packages
 

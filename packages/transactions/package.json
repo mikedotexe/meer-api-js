@@ -1,6 +1,6 @@
 {
   "name": "@meer-js/transactions",
-  "version": "6.6.12",
+  "version": "6.6.24",
   "description": "Functions and data types for transactions on NEAR",
   "types": "./dist/esm/transactions/src/index.d.ts",
   "main": "./dist/cjs/transactions/src/index.js",
@@ -13,7 +13,7 @@
     "lint": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc",
     "lint:fix": "eslint -c ../../.eslintrc.ts.yml src/**/*.ts test/**/*.ts --no-eslintrc --fix",
     "test": "jest",
-        "clean": "yarn rimraf dist node_modules package.tgz package"
+    "clean": "yarn rimraf dist node_modules package.tgz package"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +22,7 @@
     "@meer-js/crypto": "workspace:*",
     "@meer-js/signers": "workspace:*",
     "@meer-js/utils": "workspace:*",
-    "@noble/hashes": "^1.5.0",
+    "@noble/hashes": "*",
     "borsh": "*"
   },
   "devDependencies": {

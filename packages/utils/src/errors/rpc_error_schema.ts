@@ -1,4 +1,4 @@
-{
+export const rpcErrorSchema = {
   "schema": {
     "AccessKeyNotFound": {
       "name": "AccessKeyNotFound",
